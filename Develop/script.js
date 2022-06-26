@@ -51,49 +51,16 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
     var correctPrompts = getPrompts(); //checking for true or false
+    var passwordText = document.querySelector("#password");
 
     if(correctPrompts) {
-      var password = generatePassword();
-      var passwordText = document.querySelector("#password");
-
-      passwordText.value = password;
+      var newPassword = generatePassword();
+      passwordText.value = newPassword;
+    } else {
+        passwordText.value = "";
     }
 
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
-
-// console.log("You just agreed to create a new password");
-
-// //alert password criteria
-//   var passCriteria = window.alert('Select which of the following criterias, you would like to include in your password, make sure to include at least one.');
-// //choose password length between # to 128
-//   var passLength = paserInt(window.prompt('Please select the length of your password. Choose a number between 8 and 128'));
-//   console.log(passLength);
-//   if (passLength === "" || passLength === null) {
-//     window.alert("you need to input a valid answer, try again.");
-
-//     return generatePassword();
-
-//   } else if (passLength < 8 || passLength > 128) {
-//     window.alert("Wrong password length, please try again");
-
-//     return generatePassword();
-
-//   } else if (passLength => 8 || passLength == 128) {
-//     window.alert("You chose " + passLength + " as your password length.");
-//   }
-  
-// //prompt choose lowercase, uppercase, numbers, and special characters
-
-// //validate input and minimum requirements for password
-
-// //display password in page
-//   return "Generated Password will go here"
-// } 
