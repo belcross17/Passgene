@@ -10,7 +10,12 @@ var numberArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
 
 function generatePassword() {
-  
+  var password = "";
+  for(var i = 0; i < characterlength; i++) {
+    var randomIndex = Math.floor(Math.random() * choiceArr.length);
+    password = password + choiceArr[randomIndex];
+  }
+  return password;
 }
 
 function getPrompts() {
@@ -45,10 +50,14 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+    var correctPrompts = getPrompts(); //checking for true or false
 
-  passwordText.value = password;
+    if(correctPrompts) {
+      var password = generatePassword();
+      var passwordText = document.querySelector("#password");
+
+      passwordText.value = password;
+    }
 
 }
 
