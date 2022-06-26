@@ -15,6 +15,15 @@ function generatePassword() {
 
 function getPrompts() {
   characterlength = parseInt(prompt("how many characters do you want your paassword to be? between 8 - 128"));
+
+  if(isNaN(characterlength) || characterlength < 8 || characterlength > 128) {
+    alert("you need to input a valid answer, try again.");
+    return false;
+  }
+
+  confirm("Would you like lowercase letters in your password")
+
+
 }
 
 
