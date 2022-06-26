@@ -5,7 +5,7 @@ var choiceArr = [];
 
 var specialCharArr = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '~','[', ']', '{','}', ':', ';', '<', '>', '/', '?', '`', '\\', '|','+',];
 var lowerCaseArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y','z'];
-var uppercaseArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y','Z'];
+var upperCaseArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y','Z'];
 var numberArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
 
@@ -14,6 +14,7 @@ function generatePassword() {
 }
 
 function getPrompts() {
+  choiceArr = [];
   characterlength = parseInt(prompt("how many characters do you want your paassword to be? between 8 - 128"));
 
   if(isNaN(characterlength) || characterlength < 8 || characterlength > 128) {
@@ -21,8 +22,19 @@ function getPrompts() {
     return false;
   }
 
-  confirm("Would you like lowercase letters in your password")
-
+  if (confirm("Would you like lowercase letters in your password?")) {
+    choiceArr = choiceArr.concat(lowerCaseArr);
+  }
+  if (confirm("Would you like uppercase letters in your password?")) {
+    choiceArr = choiceArr.concat(upperCaseArr);
+  }
+  if (confirm("Would you like special characters in your password?")) {
+    choiceArr = choiceArr.concat(specialCharArr);
+  }
+  if (confirm("Would you like numbers in your password?")) {
+    choiceArr = choiceArr.concat(numberArr);
+  }
+  return true;
 
 }
 
