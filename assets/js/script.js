@@ -20,13 +20,16 @@ function generatePassword() {
 
 function getPrompts() {
   choiceArr = [];
-  // characterlength = parseInt(prompt("how many characters do you want your password to be? between 8 - 128"));
   characterlength = prompt("how many characters do you want your password to be? between 8 - 128");
-  
+  console.log(characterlength)
+  debugger;
   if(characterlength == null || characterlength == "null" || characterlength == "") {
     alert("You selected cancel, good bye!")
     return;
   }
+
+  characterlength = parseInt(characterlength);
+
   if(isNaN(characterlength) || characterlength < 8 || characterlength > 128) {
     alert("you need to input a valid answer, try again.");
     return getPrompts();
