@@ -20,8 +20,10 @@ function generatePassword() {
 
 function getPrompts() {
   choiceArr = [];
-  characterlength = parseInt(prompt("how many characters do you want your paassword to be? between 8 - 128"));
-  if(characterlength === null || characterlength === "null" || characterlength === "") {
+  // characterlength = parseInt(prompt("how many characters do you want your password to be? between 8 - 128"));
+  characterlength = prompt("how many characters do you want your password to be? between 8 - 128");
+  
+  if(characterlength == null || characterlength == "null" || characterlength == "") {
     alert("You selected cancel, good bye!")
     return;
   }
@@ -44,7 +46,6 @@ function getPrompts() {
   return true;
 
 }
-
 
 
 // Get references to the #generate element
